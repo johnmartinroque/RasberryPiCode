@@ -17,7 +17,7 @@ latest_sent = {
 def send_random_gsr():
     global latest_sent
     while True:
-        gsr_value = round(random.uniform(2.0, 5.0), 2)
+        gsr_value = round(random.uniform(2.0, 10.0), 2)
 
         payload = {
             "gsr_value": gsr_value
