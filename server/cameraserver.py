@@ -21,9 +21,8 @@ def generate_frames():
             success, frame = camera.read()
 
         if not success:
-            break
+            continue  # <- important
 
-        # Encode frame as JPEG
         ret, buffer = cv2.imencode('.jpg', frame)
         frame_bytes = buffer.tobytes()
 
@@ -33,6 +32,7 @@ def generate_frames():
             frame_bytes +
             b'\r\n'
         )
+
 
 @app.route('/video_feed')
 def video_feed():
@@ -44,5 +44,5 @@ def video_feed():
 # ---------------- Run Server ----------------
 if __name__ == '__main__':
     print("🚀 Camera stream running at:")
-    print("👉 http://localhost:5000/video_feed")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    print("👉 http://localhost:5001/video_feed")
+    app.run(host='0.0.0.0', port=5001, debug=True)

@@ -9,7 +9,7 @@ const CameraFeed = () => {
 
       {!hasError ? (
         <img
-          src="http://localhost:5000/video_feed"
+          src="http://localhost:5001/video_feed"
           alt="Live Camera"
           onError={() => setHasError(true)}
           style={{
